@@ -2,7 +2,7 @@ from environment import Environment
 from problem import Problem
 
 def main():
-    env = Environment(10) #num polygons
+    env = Environment(20) #num polygons
     solution = Problem(env)
     path = solution.astar()
     steps = []

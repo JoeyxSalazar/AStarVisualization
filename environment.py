@@ -48,7 +48,7 @@ class Environment:
           A Shapely polygon object.
         """ 
         while True:
-            n = random.randint(3, 4)  # Random number of vertices (3 to 4)  
+            n = random.randint(3, 6)  # Random number of vertices (3 to 4)  
             # Create polygon
             x_min = random.uniform(0.01 * self.width, 0.5 * self.width)
             y_min = random.uniform(0.01 * self.height, 0.5 * self.height)

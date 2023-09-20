@@ -35,7 +35,7 @@ class Problem:
     def check_cross(self, start, end):
         line = LineString([start, end])
         for polygon in self.polygons:
-            if line.crosses(polygon) == True:
+            if line.crosses(polygon) == True or line.within(polygon):
                 return True
         return False
         
@@ -43,11 +43,10 @@ class Problem:
     def successor(self, node):
         children = []
         for v in self.vertices:
-            if self.check_cross(node, v) == False: #and self.intersects_edge(node, v) == False:
+            if self.check_cross(node, v) == False:
                 children.append(v)
         unique_list = []
         [unique_list.append(item) for item in children if item not in unique_list]
-
         return unique_list
         pass
     
