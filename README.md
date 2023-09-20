@@ -16,3 +16,6 @@
         -Priority Queue is built to pop the tuple correlated with the smallest f-value
             -f = g + h which are defined in Problem Class
         -Problem Class contains astar, successor, and helpers
+
+# Output
+    ![Alt text](Figure_1.png)
