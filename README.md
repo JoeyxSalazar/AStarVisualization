@@ -18,4 +18,4 @@
         -Problem Class contains astar, successor, and helpers
 
 # Output
-   ![My Image](Figure_1.png)
+   ![My Image](imgs/Figure_1.png)
