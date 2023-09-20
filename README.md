@@ -18,4 +18,4 @@
         -Problem Class contains astar, successor, and helpers
 
 # Output
-    ![Alt text](Figure_1.png)
+    ![Alt text](https://github.com/JoeyxSalazar/AStarVisualization/blob/master/Figure_1.png)
