@@ -57,9 +57,6 @@ class Environment:
                     break  # Avoid infinite loop in case of overlapping polygons  
         return polygons
     
-    def draw_solution(self, path):
-        pass
-    
     def display_solution(self, coords):
         line_string = sg.LineString(coords)
 
@@ -80,4 +77,7 @@ class Environment:
         ax.set_ylim(0, self.height)
         ax.set_aspect('equal', 'box')
         plt.axis('off')
+        # Add text labels for "Start" and "End"
+        ax.text(0, 0, "Start", fontsize=12, color='green', verticalalignment='bottom')
+        ax.text(800, 600, "End", fontsize=12, color='red', verticalalignment='bottom')
         plt.show()
