@@ -39,7 +39,6 @@ class Problem:
                 return True
         return False
         
-    #This function returns a list of possible vertices to travel to next
     def successor(self, node):
         children = []
         for v in self.vertices:
@@ -51,7 +50,6 @@ class Problem:
         pass
     
     def path_cost(self, start, end):
-        # Calculate the Euclidean distance between two points
         dx = start[0] - end[0]
         dy = start[1] - end[1]
         return math.sqrt(dx**2 + dy**2)
@@ -92,7 +90,6 @@ class Problem:
                     if not open_set.is_within(neighbor):
                         open_set.push(f_score, neighbor)
 
-        # If the loop completes without finding the goal, return None or handle accordingly
         return None
 
 
