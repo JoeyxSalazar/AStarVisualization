@@ -13,6 +13,35 @@ class Environment:
         self.goal = (self.width, self.height)
         self.obstacles = self.generate_non_overlapping_polygons(num_polygons)
 
+    
+    def is_convex(self, polygon):
+        """
+        Checks if a Shapely polygon is convex.
+        """
+        coords = polygon.exterior.coords[:]
+        num_points = len(coords)
+
+        # Ensure the polygon is not too small to form a convex shape
+        if num_points < 3:
+            return False
+
+        is_clockwise = 0
+        is_counterclockwise = 0
+
+        for i in range(num_points):
+            x1, y1 = coords[i]
+            x2, y2 = coords[(i + 1) % num_points]
+            x3, y3 = coords[(i + 2) % num_points]
+
+            cross_product = (x2 - x1) * (y3 - y2) - (y2 - y1) * (x3 - x2)
+
+            if cross_product < 0:
+                is_clockwise += 1
+            elif cross_product > 0:
+                is_counterclockwise += 1
+
+        return is_clockwise == 0 or is_counterclockwise == 0
+
     def generate_random_polygon(self):
         """Generates a random polygon with 3 to 4 vertices. 
         Returns:
@@ -33,7 +62,7 @@ class Environment:
                 points.append((x, y))   
             # Create the Shapely polygon
             p = Polygon(points)
-            if p.is_valid:
+            if p.is_valid and self.is_convex(p):
                 return p
 
     # Function to generate non-overlapping polygons
